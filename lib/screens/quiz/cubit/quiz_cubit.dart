@@ -2,6 +2,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:quiz_test_task1/constants/api_key.dart';
 import 'package:quiz_test_task1/constants/app_routes.dart';
 import 'package:quiz_test_task1/models/my_resalt.dart';
 import 'package:quiz_test_task1/services/openai_service.dart';
@@ -21,8 +22,7 @@ class QuizCubit extends Cubit<QuizState> {
       bool isOnboardingAnswers = false;
       List<Map<String, dynamic>> quizQuestions = [];
       OpenAIService openAIService;
-      openAIService = OpenAIService(
-          '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');
+      openAIService = OpenAIService(ApiKey.apiKey);
       SharedPreferences prefs = await SharedPreferences.getInstance();
       List<String>? onboardingAnswers =
           prefs.getStringList('onboardingAnswers');
